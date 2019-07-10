@@ -19,7 +19,7 @@ public class LocatorsAssignments {
         driver.get("https://wikipedia.org");
         driver.findElement(By.id("searchInput")).sendKeys("selenium webdriver");
         driver.findElement(By.tagName("button")).click();
-        driver.findElement(By.linkText("Seleasfdsnium (software)")).click();
+        driver.findElement(By.linkText("Selenium (software)")).click();
 
         String exp = "Selenium_(software)";
         String actu = driver.getCurrentUrl();
