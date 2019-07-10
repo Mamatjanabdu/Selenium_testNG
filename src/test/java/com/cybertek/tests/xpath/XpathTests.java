@@ -68,6 +68,46 @@ public class XpathTests {
         System.out.println(driver.findElement(By.xpath("//button[contains(@id, 'button_')]")).getText());
 
 
+    }
+
+
+    @Test
+    public void relativeXPathUsingText(){
+        WebDriverManager.chromedriver().setup();
+
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://practice.cybertekschool.com/multiple_buttons");
+
+        // USING EXACT TEXT
+
+        System.out.println(driver.findElement(By.xpath("//button[.='Button 3']")).getText());
+        System.out.println(driver.findElement(By.xpath("//*[.='Button 3']")).getText());
+
+        // USING PARTIAL TEXT
+        System.out.println(driver.findElement(By.xpath("//button[contains(text(), 'click')]")).getText());
+    }
+
+
+    @Test
+    public void relativeXpathByIndex(){
+        WebDriverManager.chromedriver().setup();
+
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://practice.cybertekschool.com/multiple_buttons");
+
+        // NTH CHILD
+        System.out.println(driver.findElement(By.xpath("//button[2]")).getText());
+        System.out.println(driver.findElement(By.xpath("//button[6]")).getText());
+        driver.findElement(By.xpath("//button[2]")).click();
+        System.out.println(driver.findElement(By.xpath("//body/div/div[2]/div/div/div/div/p")).getText());
+
+
+        //
 
     }
 }
+
+
+
+
+
