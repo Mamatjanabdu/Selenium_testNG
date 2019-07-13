@@ -25,7 +25,7 @@ public class CreateButtonTest {
 
     @AfterMethod
     public void tearDown() {
-//        driver.quit();
+        driver.quit();
     }
 
     @Test
@@ -35,7 +35,24 @@ public class CreateButtonTest {
         String css = "a[title='Log call']";
         Assert.assertTrue(VerificationUtils.isElementDisplayed(driver, By.cssSelector(css)));
 
+        VytrackUtils.selectMenuOption(driver, "Activities", "Calendar Events");
+        css= "a[title='Create Calendar event']";
+        Assert.assertTrue(VerificationUtils.isElementDisplayed(driver, By.cssSelector(css)));
 
     }
+
+    @Test
+    public void salesManagerTest() throws InterruptedException {
+        VytrackUtils.login(driver, "salesmanager123", "UserUser123");
+        VytrackUtils.selectMenuOption(driver, "Activities", "Calls");
+        String css = "a[title='Log call']";
+        Assert.assertTrue(VerificationUtils.isElementDisplayed(driver, By.cssSelector(css)));
+
+        VytrackUtils.selectMenuOption(driver, "Activities", "Calendar Events");
+        css= "a[title='Create Calendar event']";
+        Assert.assertTrue(VerificationUtils.isElementDisplayed(driver, By.cssSelector(css)));
+
+    }
+
 
 }
