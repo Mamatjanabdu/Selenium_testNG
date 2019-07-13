@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 public class VytrackUtils {
 
     public static void login(WebDriver driver, String username, String password){
-
         driver.findElement(By.id("prependedInput")).
                 sendKeys(username);
 
@@ -18,5 +17,16 @@ public class VytrackUtils {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void selectMenuOption(WebDriver driver, String tab, String module) throws InterruptedException {
+        // click on tab
+        String tabXpath = "//span[@class='title title-level-1' and contains(text(), '"+tab+"')]";
+        driver.findElement(By.xpath(tabXpath)).click();
+        Thread.sleep(1000);
+        // click on module
+        String moduleXpath = "//span[@class='title title-level-2' and contains(text(), '"+module+"')]";
+        driver.findElement(By.xpath(moduleXpath)).click();
+        Thread.sleep(2000);
     }
 }
