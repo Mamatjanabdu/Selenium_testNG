@@ -23,7 +23,11 @@ public class VytrackUtils {
         // click on tab
         String tabXpath = "//span[@class='title title-level-1' and contains(text(), '"+tab+"')]";
         driver.findElement(By.xpath(tabXpath)).click();
-        Thread.sleep(1000);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         // click on module
         String moduleXpath = "//span[@class='title title-level-2' and contains(text(), '"+module+"')]";
         driver.findElement(By.xpath(moduleXpath)).click();
